@@ -1,40 +1,53 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, FC, CSSProperties } from 'react';
 
 interface IconProps {
-  src: string;
-  color?: string;
+  name?: string;
+  src?: string;
+  fillColor?: string;
+  strokeColor?: string;
   size?: number;
   className?: string;
   [key: string]: unknown;
 }
 
-const Icon: React.FC<IconProps> = ({ src, color, size, className, ...rest }) => {
+const Icon: FC<IconProps> = ({ name, src, fillColor, strokeColor, size, className, ...rest }) => {
   const [svgContent, setSvgContent] = useState<string | null>(null);
 
-  useEffect(() => {
-    fetch(src)
-      .then((response) => response.text())
-      .then((data) => setSvgContent(data));
-  }, [src]);
+  const iconSrc = src ? src : `/nexus-mental-health-web-app/src/assets/icons/${name}.svg`;
 
-  const style: React.CSSProperties = {};
+  useEffect(() => {
+    fetch(iconSrc)
+      .then((response) => response.text())
+      .then((data) => {
+        let updatedData = data;
+        if (fillColor) {
+          updatedData = updatedData.replace(/fill="[^"]*"/g, `fill="${fillColor}"`);
+        }
+        if (strokeColor) {
+          updatedData = updatedData.replace(/stroke="[^"]*"/g, `stroke="${strokeColor}"`);
+        }
+        setSvgContent(updatedData);
+      });
+  }, [iconSrc, fillColor, strokeColor]);
+
+  const style: CSSProperties = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  };
 
   if (size !== undefined) {
     style.width = `${size}px`;
     style.height = `${size}px`;
   }
 
-  if (color !== undefined) {
-    style.fill = color;
-  }
-
   return (
-    <div
-      style={style}
-      dangerouslySetInnerHTML={{ __html: svgContent || '' }}
+    <span
       className={className}
+      style={style}
       {...rest}
-    ></div>
+      dangerouslySetInnerHTML={{ __html: svgContent || '' }}
+    />
   );
 };
 

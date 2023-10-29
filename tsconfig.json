@@ -20,13 +20,14 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     // custom
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@components": ["components"],
-      "@pages": ["pages"],
-      "@utilites": ["utilites"],
-      "@hooks": ["hooks"],
-      "@assets": ["assets"],
+      "@components": ["./src/components"],
+      "@pages": ["./src/pages"],
+      "@utilites": ["./src/utilites"],
+      "@hooks": ["./src/hooks"],
+      "@assets": ["./src/assets"],
+      "@styles": ["./src/styles/"]
     }
   },
   "include": ["src"],

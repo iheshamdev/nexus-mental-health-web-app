@@ -5,7 +5,6 @@ import './Login.scss';
 
 const Login: React.FC = () => {
   const [rememberMe, setRememberMe] = React.useState(false);
-
   return (
     <div className="login-page">
       <div className="box"></div>

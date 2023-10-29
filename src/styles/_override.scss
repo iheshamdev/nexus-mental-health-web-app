@@ -1,0 +1,13 @@
+// Override label direction in antd forms
+.ant-form-item-label > label {
+  direction: rtl;
+  &::after {
+    display: none;
+  }
+}
+
+// override antd button
+.ant-btn {
+  display: flex;
+  align-items: center;
+}
