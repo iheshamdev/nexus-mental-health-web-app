@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Button, Icon, NavLinkWrapper } from '@components';
+import { Button, Flex, Icon, NavLinkWrapper } from '@components';
 import './Header.scss';
 
 const Header: FC = () => {
@@ -8,7 +8,7 @@ const Header: FC = () => {
       <div className="container">
         <Icon name="logo" className="logo" />
         <nav>
-          <ul>
+          <Flex component="ul" gap="middle" align="center">
             <li>
               <NavLinkWrapper text="Home" to="/" />
             </li>
@@ -36,7 +36,7 @@ const Header: FC = () => {
                 Emergency call
               </Button>
             </li>
-          </ul>
+          </Flex>
         </nav>
         <div className="header-icons">
           <div className="icon chat">

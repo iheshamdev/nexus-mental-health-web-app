@@ -79,11 +79,11 @@ const AntCofigWrapper: React.FC<AntCofigWrapperProps> = ({ children, ...wave }) 
     theme={{
       token: {
         colorPrimary: import.meta.env.VITE_PRIMARY_COLOR,
-        borderRadius: 4,
+        borderRadius: 2,
         controlHeight: 40,
         fontFamily: "'Rubik', sans-serif",
         fontWeightStrong: 600,
-        fontSize: 18,
+        fontSize: 16,
       },
       components: {
         Button: {
