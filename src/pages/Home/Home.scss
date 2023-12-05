@@ -1,0 +1,15 @@
+@import '@styles/colors.scss';
+.ann-section {
+  h3 {
+    color: $primary-color-400;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 56px 0px 8px 0px;
+  }
+  p {
+    color: #222133;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 32px;
+  }
+}

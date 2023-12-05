@@ -1,4 +1,4 @@
-export { default as Login } from './Login/Login';
+export { default as Login } from './Login/Login.tsx';
 export { default as Home } from './Home/Home';
 export { default as About } from './About/About';
 export { default as Announcements } from './Announcements/Announcements';
